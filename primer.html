@@ -1,0 +1,21 @@
+<html>
+ <head>
+ <title> Пример JINJA2 </title>
+ </head>
+<body>
+<div>
+{% macro create_list_field(name, dictionary, key) %}
+   <select name="{{ name }}">
+  {% for k, v in dictionary.items() %}
+    <option value="{{ k }}" {% if k == key %}selected{% endif %}>
+        {{ v }}
+    </option>
+  {% endfor %}
+</select>
+{% endmacro %}
+</div>
+ <p>
+ {{ create_list_field(name, dictionary, key) }}
+ </p>
+ </body>
+</html>
